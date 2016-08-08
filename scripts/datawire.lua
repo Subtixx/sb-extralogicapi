@@ -98,7 +98,7 @@ function datawire.sendData(data, dataType, nodeId)
   end
 
   -- if not transmitSuccess then
-  --   sb.logInfo(string.format("DataWire: %s (id %d) FAILED to send data of type %s", entity.configParameter("objectName"), entity.id(), dataType))
+  --   sb.logInfo(string.format("DataWire: %s (id %d) FAILED to send data of type %s", config.getParameter("objectName"), entity.id(), dataType))
   --   sb.logInfo(data)
   -- end
 
@@ -116,7 +116,7 @@ function datawire.receiveData(_, _, args)
   local dataType = args[2]
   local sourceEntityId = args[3]
 
-  -- sb.logInfo("%s %d sent me this %s %s", world.callScriptedEntity(sourceEntityId, "entity.configParameter", "objectName"), sourceEntityId, dataType, data)
+  -- sb.logInfo("%s %d sent me this %s %s", world.callScriptedEntity(sourceEntityId, "config.getParameter", "objectName"), sourceEntityId, dataType, data)
 
   --convert entityId to nodeId
   local nodeId = datawire.inboundConnections[sourceEntityId]
