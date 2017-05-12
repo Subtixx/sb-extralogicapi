@@ -16,24 +16,24 @@ function getSample()
   return false
 end
 
-function main()
+function update(dt)
   datawire.update()
   
   local sample = getSample()
   datawire.sendData(sample, "number", "all")
 
   if sample >= self.detectThresholdLow then
-    entity.setOutboundNodeLevel(0, true)
-    entity.setAnimationState("sensorState", "med")
+    object.setOutputNodeLevel(0, true)
+    animator.setAnimationState("sensorState", "med")
   else
-    entity.setOutboundNodeLevel(0, false)
-    entity.setAnimationState("sensorState", "min")
+    object.setOutputNodeLevel(0, false)
+    animator.setAnimationState("sensorState", "min")
   end
 
   if sample >= self.detectThresholdHigh then
-    entity.setOutboundNodeLevel(1, true)
-    entity.setAnimationState("sensorState", "max")
+    object.setOutputNodeLevel(1, true)
+    animator.setAnimationState("sensorState", "max")
   else
-    entity.setOutboundNodeLevel(1, false)
+    object.setOutputNodeLevel(1, false)
   end
 end

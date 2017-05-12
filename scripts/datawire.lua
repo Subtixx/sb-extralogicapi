@@ -65,7 +65,7 @@ end
 --- determine whether there is a valid recipient on the specified outbound node
 -- @param nodeId the node to be queried
 -- @returns true if there is a recipient connected to the node
-function datawire.isOutboundNodeConnected(nodeId)
+function datawire.isOutputNodeConnected(nodeId)
   return datawire.outboundConnections and datawire.outboundConnections[nodeId] and #datawire.outboundConnections[nodeId] > 0
 end
 
